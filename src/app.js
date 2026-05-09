@@ -28,10 +28,20 @@ app.use(express.urlencoded({
 app.use(express.static('public'));
 app.use(cookieParser());
 
+// Server health moniter route
+app.get("/", (req, res) => {
+    res.status(200).json({
+        status: "ok",
+        message: "Server is healthy",
+        uptime: process.uptime(),
+        timestamp: Date.now()
+    });
+});
+
 // registering all routes
 app.use('/api/v1/user', userRouter);
 
 // registering global error handling middleware
-// app.use(errorHandler);
+app.use(errorHandler);
 
 export { app };
