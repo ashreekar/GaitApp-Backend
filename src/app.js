@@ -13,7 +13,14 @@ const app = express();
 // allowing cors of 5173 and 3317
 app.use(cors(
     {
-        origin: ["http://localhost:5173", "http://localhost:3317", "https://youtube-frontend-pied.vercel.app"],
+        origin: [
+            "http://localhost:5173",
+            "http://localhost:3317",
+            "http://localhost:5173",
+            "http://192.168.1.28:5173",
+            "capacitor://localhost",
+            "http://localhost"
+        ],
         credentials: true
     }
 ));
