@@ -4,6 +4,7 @@ import cookieParser from 'cookie-parser';
 
 // Routes
 import userRouter from './routes/user.route.js'
+import sessionRoutes from './routes/session.route.js';
 
 //  global error handler
 import { errorHandler } from './middleware/error.middleware.js'
@@ -47,6 +48,7 @@ app.get("/", (req, res) => {
 
 // registering all routes
 app.use('/api/v1/user', userRouter);
+app.use("/api/v1/session", sessionRoutes);
 
 // registering global error handling middleware
 app.use(errorHandler);
