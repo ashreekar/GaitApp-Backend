@@ -21,7 +21,7 @@ app.use(cors(
             "http://192.168.1.28:5173",
             "capacitor://localhost",
             "http://localhost",
-            "http://192.168.1.28:5173"
+            "http://192.168.1.8:5173"
         ],
         credentials: true
     }
