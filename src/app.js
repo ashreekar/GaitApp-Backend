@@ -12,20 +12,20 @@ import { errorHandler } from './middleware/error.middleware.js'
 const app = express();
 
 // allowing cors of 5173 and 3317
-app.use(cors(
-    {
-        origin: [
-            "http://localhost:5173",
-            "http://localhost:3317",
-            "http://localhost:5173",
-            "http://192.168.1.28:5173",
-            "capacitor://localhost",
-            "http://localhost",
-            "http://192.168.1.8:5173"
-        ],
-        credentials: true
-    }
-));
+app.use(cors({
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:3317",
+        "http://192.168.1.28:5173",
+        "http://192.168.1.8:5173",
+
+        // Capacitor
+        "http://localhost",
+        "https://localhost",
+        "capacitor://localhost"
+    ],
+    credentials: true
+}));
 
 // express json and urlencoded middleware to parse request bodies
 app.use(express.json());
