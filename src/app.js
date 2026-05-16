@@ -11,39 +11,8 @@ import { errorHandler } from './middleware/error.middleware.js'
 
 const app = express();
 
-// allowing cors of 5173 and 3317
 app.use(cors({
-  origin: function (origin, callback) {
-
-    // Allow requests with no origin
-    // (mobile apps, Postman, Capacitor, etc.)
-    if (!origin) {
-      return callback(null, true);
-    }
-
-    const allowedOrigins = [
-      "http://localhost:5173",
-      "http://localhost:3317",
-      "http://localhost",
-      "https://localhost",
-      "capacitor://localhost"
-    ];
-
-    // Exact matches
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    // Allow all 192.168.1.x IPs
-    const localNetworkRegex = /^http:\/\/192\.168\.1\.\d+:5173$/;
-
-    if (localNetworkRegex.test(origin)) {
-      return callback(null, true);
-    }
-
-    callback(new Error("Not allowed by CORS"));
-  },
-
+  origin: true,
   credentials: true
 }));
 
